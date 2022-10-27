@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registration Form</title>
+      <style type="text/css">
+        body{
+          background-color: antiquewhite;
+        }
+        table{
+          background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+          font-size: 24px;
+          border-collapse: separate;
+          border-spacing: 17px;
+          border-radius: 10px;
+          background-color: aliceblue;
+          color: aqua;
+        }
+        table input{
+          border: none;
+          width: 230px;
+          height: 25px;
+          background-color: rgb(254, 254, 254);
+          border-radius:15px;
+          font-size: 15px;
+          font-weight: bold;
+          font-style: italic;
+        }
+        .btn{
+          border-radius: 15px;
+          width: 150px;
+          text-align: center;
+          padding: 7px;
+          margin-top: -20px;
+          margin-right: -45px;
+          font-weight: bold;
+          justify-content: center;
+        }
+      </style>
+</head>
+<body>
+  <center>
+  <br><br>
+  <h1>Registration Form</h1><br>
+  <form action="{{ url_for('output') }}" method="post">
+  <table>
+    <tr>
+        <td>
+        <label>Name  : </label>
+      </td>
+      <td>
+         <input type="text"  id="name" name="name">  
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>Email  : </label>
+      </td>
+      <td>
+        <input type="email"  id="email" name="email">  
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>Mobile  : </label>
+      </td>
+      <td>
+          <input type="text" id="mobile" name="mobile">  
+      </td>
+    </tr>
+    </table><br><br>
+    <input class="btn btn-outline-primary" type="submit" value="Submit">
+  </form>
+</center>
+</body>
+</html>
