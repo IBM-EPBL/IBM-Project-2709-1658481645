@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORDER</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"   href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display-swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins' , sans-serif;
+    }
+    body
+    {
+        background:linear-gradient(90deg, #000428  0%, #004e92 100%);
+    }
+    header
+    {
+        position: absolute;
+        top: 0;
+        Left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 100px;
+        z-index: 100;
+    }
+    header .logo img
+    {
+        max-width: 500px;
+        float: left;
+        color: #f2f2f2;
+    }
+    .navigation
+    {
+        display: flex;
+        padding-left: 500px;
+    }
+    .navigation li
+    {
+        List-style: none;
+        margin: 0 10px;
+        
+    }
+    .navigation li a
+    {
+        color: rgb(1, 253, 253);
+        text-decoration: none;
+        font-weight: 500;
+        Letter-spacing: 1px;
+    }
+    .navigation li:hover a
+    {
+        color: #de0611;
+    }
+
+form
+{
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+    border-radius: 50px;
+
+}
+.login__field {	
+    top: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputBox{
+    width: 110%;
+}
+
+input{
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  margin: 8px 0;
+  padding: 12px 10px;
+  padding-left: 30px;
+  width: 100%;
+  text-align: left;
+}
+
+
+h2{
+    text-align: center;
+    justify-content: center;
+    bottom: auto;
+}
+button:active{
+    transform: scale(.90);
+}
+button.press
+{
+    background-color: transparent;
+    border-color: #FFFFFF;
+}
+button
+{
+    border-radius: 20px;
+    border: 1px solid #2b83ff;
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    color: black;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition:  0.8s ease-in;
+    margin: 10px;
+}
+
+   </style>
+</head>
+<body>
+   <header>
+      <a href="#" class="logo">
+          <div><h3 style="right:0;font-family:'Lobster', cursive;color: #fff;">Fassio </h3>
+              <img src="{{url_for('static',filename='logo.png')}}" width="40spx" height="30px" style="color: white;"></a>
+          </div>
+          <ul class="navigation">
+              <li><a href="/index"> Home </a></li>
+              <li><a href="/logout"> Logout </a></li>
+              <li><a href="#"> Contact </a></li>
+          </ul>
+  </header>
+      <div class="inputBox">
+        <div class="form">
+            <h2>OREDER CONFIRMATION</h2>
+            <form action="complete" method="post" style="color: rgb(0, 0, 0);text-align:center;padding: 5%;">
+                {% block body %}
+                <img src="{{img}}" style="text-align:center;">
+                <div class="login_field">
+                <input type="hidden" name="order_image" value="{{img}}"  />
+            </div>
+                
+                <!-- <label>PRODUCT NAME</label> -->
+                <div class="login_field">
+                <input type="hidden" name="order_name" value="{{pname}}"  /></div>
+                <h3>PRODUCT NAME:{{pname}}</h3>
+                <!-- <label>PRODUCT RATE</label> -->
+                <div class="login_field">
+                <input type="hidden" name="order_categorie" value="{{rate}}"  /></div>
+                <h3>PRODUCT RATE:{{rate}}</h3>
+                <div class="login_field">
+                <input type="hidden" name="order_categorie" value="{{categorie}}"  /></div>
+                <!-- <label>CATEGORIE</label> -->
+                <h3>CATEGORIE:{{categorie}}</h3>
+                <div class="login_field">
+                <input type="hidden" name="order_rate" value="{{rate}}"  /></div>
+                {% endblock %}
+                <button class="press" id="SignIn">Conform</button>
+                </form>
+            
+            <div class="inputBox"  >
+                </div>
+                </div>
+                </div>
+    
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+}
+body{
+   min-height: 100vh;
+   background-color: #ffffff;
+   
+}
+        table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 5%;
+}
+.header
+                {
+                    position: absolute;
+                    top: 0;
+                    Left: 0;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 30px 100px;
+                    z-index: 100;
+                }
+                header .logo img
+                {
+                    max-width: 600px;
+                }
+                .navigation
+                {
+                    display: flex;
+                    padding-left: 1300px;
+                    font-weight: bolder;
+                    font-style: italic;
+                    font-size: 20px;
+                    color: #ddd;
+                }
+                .navigation li
+                {
+                    List-style: none;
+                    margin: 0 10px;
+                    
+                }
+                .navigation li a
+                {
+                    text-decoration: none;
+                    font-weight: 500;
+                    Letter-spacing: 1px;
+                    margin-top: 20px;
+                }
+                .navigation li:hover a
+                {
+                    color: #de0611;
+                }
+                
+
+
+    </style>
+</head>
+<body>
+  <header>
+    <a href="#" class="logo">
+      <div><h3 style="right:0;font-family:'Lobster', cursive;color: rgb(0, 0, 0);">Fassio </h3>
+          <img src="{{url_for('static',filename='logo.png')}}" width="40spx" height="30px"></a>
+      </div>
+      <ul class="navigation">
+        <li><a href="/logout"> Log Out </a></li>
+    </ul>
+    </header>
+    <table style="width:90%">
+        <tr>
+          <th>ORDERNAME</th>
+          <th>IMAGE</th> 
+          <th>CATEGORIE</th>
+          <th>RATE</th>
+          
+        </tr>
+        {% for item in details %}
+        <tr>
+          <td>{{item.NAME}}</td>
+          <td><img src="{{item.IMAGE}}" width="20%" height="20%"></td>
+          <td>{{item.RATE}}</td>
+          <td>{{item.CATEGORIE}}</td>
+
+        </tr>
+        {% endfor %}
+      </table>
+</body>
+</html>
