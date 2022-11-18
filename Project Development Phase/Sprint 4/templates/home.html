@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Product</title>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
+        <link rel="stylesheet"   href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css"/>
+        <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="{{url_for('static',filename='styles/home.css')}}">
+
+        <script>
+            window.watsonAssistantChatOptions = {
+              integrationID: "077aae19-3307-4a90-90b3-9dc9fd7916fd", // The ID of this integration.
+              region: "au-syd", // The region your integration is hosted in.
+              serviceInstanceID: "3f42b0bd-fe7d-49ed-b006-c88f5472a62f", // The ID of your service instance.
+              onLoad: function(instance) { instance.render(); }
+            };
+            setTimeout(function(){
+              const t=document.createElement('script');
+              t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+              document.head.appendChild(t);
+            });
+          </script>
+
+<style>
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+h1,h2{
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+}
+h3{
+    color: aqua;
+}
+
+
+
+</style>
+
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <div><h3 style="right:0;font-family:'Lobster', cursive;color: #fff;">Fassio </h3>
+                <img src="{{url_for('static',filename='logo.png')}}" width="40spx" height="30px" style="color: white;"></a>
+            </div>
+            <ul class="navigation">
+                <li><a href="/index"> Home </a></li>
+                <li><a href="/logout"> Logout </a></li>
+                <li><a href="#"> Contact </a></li>
+            </ul>
+    </header>
+ 
+<h2><center> SHIRTS </center></h2>
+<div class="splide" style="padding: 0;margin:0">
+    <div class="splide__track">
+        <ul class="splide__list">
+          {% for item in dictionary %}
+          <li class="splide__slide">
+            <div class="container">
+                <div class="card">
+                 
+                    <div class="image">
+                        <img src="{{item.IMAGE}}">
+
+                    </div>
+                   
+                    <div class="descrpton">
+                        
+                        <h2>{{item.NAME}}</h2>
+                        
+                        <div class="size">
+                            <span>S</span>
+                            <span>M</span>
+                            <span>L</span>
+                            <span>XL</span>
+                            <span>XXL</span>
+                        </div>
+                        <h3>&#8360;{{item.RATE}}</h3>
+                        <a href="/order">Buy now</a>
+                    </div>
+                    
+                    
+                    </div>
+            </div>
+            </li>
+            {% endfor %}
+            <!-- pant -->
+        </ul> 
+    </div>
+</div>
+<H2><center> PANTS </center></H2>
+<div id="pant"  class="splide"  style="margin:0;background: #131313;" >
+    <div class="splide__track">
+        <ul class="splide__list">
+          {% for item in pants %}
+          <li class="splide__slide">
+            <div class="container">
+                <div class="card">
+                 
+                    <div class="image">
+                        <img src="{{item.IMAGE}}">
+
+                    </div>
+                   
+                    <div class="descrpton">
+                        
+                        <h2>{{item.NAME}}</h2>
+                        
+                        <div class="size">
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                        </div>
+                        <h3>&#8360;{{item.RATE}}</h3>
+                        <a href="/order">Buy now</a>
+                    </div>
+                    </div>
+            </div>
+            </li>
+            {% endfor %}
+            <!-- pant -->
+            </ul>
+            </div>
+</div>
+<h2><center> T-SHIRTS </center></h2>
+<div id="tshirts"  class="splide" style="padding: 0;margin:0;background: #131313;" >
+        <div class="splide__track">
+            <ul class="splide__list">
+              {% for item in tshirts %}
+              <li class="splide__slide">
+                <div class="container">
+                    <div class="card">
+                     
+                        <div class="image">
+                            <img src="{{item.IMAGE}}">
+    
+                        </div>
+                       
+                        <div class="descrpton">
+                            
+                            <h2>{{item.NAME}}</h2>
+                            
+                            <div class="size">
+                                <span>S</span>
+                                <span>M</span>
+                                <span>L</span>
+                                <span>XL</span>
+                                <span>XXL</span>
+                            </div>
+                            <h3>&#8360;{{item.RATE}}</h3>
+                            <a href="#">Buy now</a>
+                        </div>
+                        </div>
+                </div>
+                </li>
+                {% endfor %}
+                <!-- pant -->
+                </ul>
+                </div>
+</div>
+<h2><center> SAREES </center></h2>
+ <div id="saree"  class="splide" style="padding: 0;margin:0;background: #131313;"  >
+                  <div class="splide__track">
+                      <ul class="splide__list">
+                        {% for item in sarees %}
+                        <li class="splide__slide">
+                          <div class="container">
+                              <div class="card">
+                               
+                                  <div class="image">
+                                      <img src="{{item.IMAGE}}">
+              
+                                  </div>
+                                 
+                                  <div class="descrpton">
+                                      
+                                      <h2>{{item.NAME}}</h2>
+                                      
+                                      <div class="size">
+                                        <span>S</span>
+                                        <span>M</span>
+                                        <span>L</span>
+                                        <span>XL</span>
+                                        <span>XXL</span>
+                                    </div>
+                                      <h3>{{item.RATE}}</h3>
+
+                                      <a href="#">Buy now</a>
+                                  </div>
+                                  </div>
+                          </div>
+                          </li>
+                          {% endfor %}
+                          <!-- pant -->
+                          </ul>
+                          </div>
+</div>     
+<h2><center> TOPS </center></h2>
+ <div id="tops"  class="splide" style="padding: 0;margin:0;background: #131313;"  >
+                  <div class="splide__track">
+                      <ul class="splide__list">
+                        {% for item in topss %}
+                        <li class="splide__slide">
+                          <div class="container">
+                              <div class="card">
+                               
+                                  <div class="image">
+                                      <img src="{{item.IMAGE}}">
+              
+                                  </div>
+                                 
+                                  <div class="descrpton">
+                                      
+                                      <h2>{{item.NAME}}</h2>
+                                      
+                                      <div class="size">
+                                        <span>S</span>
+                                        <span>M</span>
+                                        <span>L</span>
+                                        <span>XL</span>
+                                        <span>XXL</span>
+                                    </div>
+                                      <h3>{{item.RATE}}</h3>
+                                      <a href="#">Buy now</a>
+                                  </div>
+                                  </div>
+                          </div>
+                          </li>
+                          {% endfor %}
+                          <!-- pant -->
+                          </ul>
+                          </div>
+</div> 
+<h2><center> LEGGINGS </center></h2>
+ <div id="leggings"  class="splide" style="padding: 0;margin:0;background: #131313;"  >
+                  <div class="splide__track">
+                      <ul class="splide__list">
+                        {% for item in leggings %}
+                        <li class="splide__slide">
+                          <div class="container">
+                              <div class="card">
+                               
+                                  <div class="image">
+                                      <img src="{{item.IMAGE}}">
+              
+                                  </div>
+                                 
+                                  <div class="descrpton">
+                                      
+                                      <h2>{{item.NAME}}</h2>
+                                      
+                                      <div class="size">
+                                        <span>S</span>
+                                        <span>M</span>
+                                        <span>L</span>
+                                        <span>XL</span>
+                                        <span>XXL</span>
+                                    </div>
+                                      <h3>{{item.RATE}}</h3>
+                                      <a href="#">Buy now</a>
+                                  </div>
+                                  </div>
+                          </div>
+                          </li>
+                          {% endfor %}
+                          <!-- pant -->
+                          </ul>
+                          </div>
+</div>    
+<h2><center> HATS </center></h2>
+ <div id="hat"  class="splide" style="padding: 0;margin:0;background: #131313;"  >
+                  <div class="splide__track">
+                      <ul class="splide__list">
+                        {% for item in hats %}
+                        <li class="splide__slide">
+                          <div class="container">
+                              <div class="card">
+                               
+                                  <div class="image">
+                                      <img src="{{item.IMAGE}}">
+              
+                                  </div>
+                                 
+                                  <div class="descrpton">
+                                      
+                                      <h2>{{item.NAME}}</h2>
+                                      
+                                      <div class="size">
+                                        <span>S</span>
+                                        <span>M</span>
+                                        <span>L</span>
+                                        <span>XL</span>
+                                        <span>XXL</span>
+                                    </div>
+                                      <h3>{{item.RATE}}</h3>
+
+                                      <a href="/order">Buy now</a>
+                                  </div>
+                                  </div>
+                          </div>
+                          </li>
+                          {% endfor %}
+                          <!-- pant -->
+                          </ul>
+                          </div>
+</div>       
+<script>
+var splide = new Splide( '.splide', {
+    type    : 'loop',
+    perPage : 4,
+    autoplay: true,
+} );
+
+splide.mount();
+
+
+document.addEventListener('DOMContentLoaded', function () {
+new Splide('#pant', {
+perPage: 4,
+perMove: 1,
+gap: "0px",
+pagination: false,
+}).mount();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+new Splide('#tshirts', {
+perPage: 4,
+perMove: 1,
+gap: "0px",
+pagination: false,
+}).mount();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+new Splide('#saree', {
+perPage: 4,
+perMove: 1,
+gap: "0px",
+pagination: false,
+}).mount();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+new Splide('#tops', {
+perPage: 4,
+perMove: 1,
+gap: "0px",
+pagination: false,
+}).mount();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+new Splide('#leggings', {
+perPage: 4,
+perMove: 1,
+gap: "0px",
+pagination: false,
+}).mount();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+new Splide('#hat', {
+perPage: 4,
+perMove: 1,
+gap: "0px",
+pagination: false,
+}).mount();
+});
+
+</script>
+
+<script>
+var splid = new Splide( '.splid', {
+type    : 'loop',
+perPage : 4,
+autoplay: true,
+} );
+splid.mount();
+</script>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+var i;
+var x = document.getElementsByClassName("mySlides");
+for (i = 0; i < x.length; i++) {
+x[i].style.display = "none";  
+}
+myIndex++;
+if (myIndex > x.length) {myIndex = 1}    
+x[myIndex-1].style.display = "block";  
+setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+<footer>
+    <div class="container">
+        <div class="row">
+              <div class="col" id="company">
+                  <a href="#" class="logo">
+                      <div><h3 style="right:0;font-family:'Lobster', cursive;color: #fff;">Fassio </h3>
+                          <img src="{{url_for('static',filename='logo.png')}}" width="40spx" height="30px" style="color: white;" ></a>
+                      </div>
+                  <div class="social">
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    <a href="https://twitter.com/i/flow/login"><i class="fab fa-twitter"></i></a>
+                  </div>
+              </div>
+
+              <div class="col" id="useful-links">
+                 <h3>Links</h3>
+                 <div class="links">
+                    <a href="/index">Home</a>
+                    <a href="/home">Shop</a>
+                    <a href="#">Help</a>
+                 </div>
+              </div>
+
+              <div class="col" id="contact">
+                  <h3>Contact</h3>
+                  <div class="contact-details">
+                     <i class="fa fa-location"></i>
+                     <p>Kongunadu College of Engineering and Technology <br> Tholurpatti, Trichy</p>
+                  </div>
+                  <br>
+                  <div class="contact-details">
+                     <i class="fa fa-phone"></i>
+                     <p>+91 8901234567</p>
+                  </div>
+              </div>
+        </div>
+
+        <div class="row">
+              <div class="form">
+                <form action="">
+                    <input type="email" placeholder="Email here...">
+                    <button><i class="fa fa-paper-plane"></i></button>
+                </form>
+              </div>
+        </div>
+
+    </div>
+ </footer>
+
+</body>
+</html>
