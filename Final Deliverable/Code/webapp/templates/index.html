@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content= meta charset="UTF-8">
+<title>SMART FASHION RECOMMENDER APPLICATION(SFRA)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css" integrity="sha384-z4tVnCr80ZcL0iufVdGQSUzNvJsKjEtqYZjiQrrYKlpGow+btDHDfQWkFjoaz/Zr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+<script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "077aae19-3307-4a90-90b3-9dc9fd7916fd", // The ID of this integration.
+      region: "au-syd", // The region your integration is hosted in.
+      serviceInstanceID: "3f42b0bd-fe7d-49ed-b006-c88f5472a62f", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display-swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins' , sans-serif;
+    }
+    body
+    {
+        background:linear-gradient(90deg, #000428  0%, #004e92 100%);
+    }
+    header
+    {
+        position: absolute;
+        top: 0;
+        Left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding: 30px 100px;
+        z-index: 100;
+    }
+    header .logo img
+    {
+        max-width: 600px;
+        color: #f2f2f2;
+    }
+    .navigation
+    {
+        display: flex;
+        padding-left: 500px;
+    }
+    .navigation li
+    {
+        List-style: none;
+        margin: 0 10px;
+        
+    }
+    .navigation li a
+    {
+        color: rgb(1, 253, 253);
+        text-decoration: none;
+        font-weight: 500;
+        Letter-spacing: 1px;
+    }
+    .navigation li:hover a
+    {
+        color: #de0611;
+    }
+    .search
+    {
+        position: relative;
+        width: 300px;
+        height: 40px;
+    }
+    .search input
+    {
+        position: absolute;
+        top: 0;
+        Left: 0;
+        width: 100%;
+        height: 100%;
+        color: rgb(1, 1, 1);
+        background: transparent;
+        border: 1px solid rgba(5, 5, 5, 0.5);
+        outline: none;
+        border-radius: 4px;
+        padding: 0 10px 0 45px;
+        background-image: blur(10px);
+    }
+    .search input ::placeholder
+    {
+        color:rgb(0, 0, 0)
+    }
+    .search .fa-search
+    {
+        position: absolute;
+        top: 50%;
+        Left: 10px;
+        transform: translateY(-50%);
+        padding-right: 10px;
+        color: rgb(5, 5, 5);
+        border-right: 1px solid rgb(5, 5, 5);
+    }
+    .banner
+    {
+        
+        position: relative;
+        background-repeat:no-repeat ;
+        width: 100%;
+        min-height: 100vh;
+        padding: 0 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .banner .bg{
+        position: absolute;
+        top: 0;
+        Left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    p{
+        color: #fff;
+    }
+
+    .content{
+            text-align: center;
+            padding: 2%;
+            border: solid none;
+
+        }
+    .content a{
+        color: #f2f2f2;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bolder;
+        text-decoration: none;
+        background: #de0611;
+        padding: 5px;
+        border-radius: 10px;
+        }
+        .image22{
+            position: absolute;
+            left: 10%;
+            top:100%; 
+            box-shadow: 0 8px 16px 0 rgb(7, 108, 85);
+        }
+        h6{
+            color:black;
+            position: absolute;
+            left: 20%;
+            bottom: 25%;
+            border:1px solid whitesmoke;
+            width: 200px;
+            font-size: 40px;
+            background-color:white;
+            font-weight: normal;
+            text-align: center;
+        }
+        .image22:hover{
+            box-shadow: 0 8px 16px 0 rgb(28, 227, 230);
+        }
+        .image23{
+            position: absolute;
+            left: 40%;
+            box-shadow: 0 8px 16px 0 rgb(7, 108, 85);
+        }
+        .image23:hover{
+            box-shadow: 0 8px 16px 0 rgb(28, 227, 230);
+        }
+        
+        .image24{
+            position: absolute;
+            left: 70%;
+            top:100%;
+            box-shadow: 0 8px 16px 0 rgb(7, 108, 85);
+        }
+        .image24:hover{
+            box-shadow: 0 8px 16px 0 rgb(28, 227, 230);
+        }
+        .about, .cart, .chatbot{
+            margin-bottom: 15px;
+        }
+        .about{
+            margin-top: 20%;
+            width: 100%;
+            height: 300px;
+            box-shadow: 0 4px 8px 0 rgba(15, 235, 255, 0.753);
+            background-color: white;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .cart,.chatbot{
+            width: 100%;
+            height: 300px;
+            box-shadow: 0 4px 8px 0 rgba(15, 235, 255, 0.753);
+            background-color: white;
+            transition: 0.3s;
+            padding: 1%;
+        }
+        .about:hover,.cart:hover,.chatbot:hover {
+            box-shadow: 0 8px 16px 0 rgb(28, 227, 230);
+            }
+
+        .left{
+          
+            width: 10%;
+            height: 100%;
+            float: left;
+            margin: 1%;   
+        }
+        .txt{
+           padding-top: 2%;
+            text-align: center;
+        }
+
+        @media(max-width:600px)
+        {
+            header
+            {
+                padding: 20px;
+            }
+        }
+footer{
+    background:linear-gradient(90deg, #000428  0%, #004e92 100%);
+     position: relative;
+     width: 100%;
+     min-height: 350px;
+     padding: 3rem 1rem;
+}
+.container1 {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col{
+    min-width: 250px;
+    color:#f2f2f2f2;
+    font-family: poppins;
+    padding:0 2rem;
+}
+.col .logo{
+    width: 100px;
+    margin-bottom:25px;
+}
+.col h3{
+    color:#ff014fff;
+    margin-bottom: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.col h3::after{
+    content: '';
+    height:3px;
+    width:0px;
+    background-color: #ff014fff;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    transition: 0.3s ease;
+
+}
+.col h3:hover::after{
+    width:30px
+}
+.col .social a i{
+    color:#ff014fff;
+    margin-top:2rem;
+    margin-right: 5px;
+    transition: 0.3s ease;
+}
+.col .social a i:hover{
+    transform: scale(1.5);
+    filter:grayscale(25);
+}
+.col .links a{
+    display: block;
+    text-decoration: none;
+    color:#f2f2f2;
+    margin-bottom: 5px;
+    position: relative;
+    transition: 0.3s ease;
+}
+.col .links a::before{
+    content:'';
+    height: 16px;
+    width:3px;
+    position: absolute;
+    top:5px;
+    left:-10px;
+    background-color: #ff014fff;
+    transition: 0.5s ease;
+    opacity: 0;
+}
+.col .links a:hover::before{
+    opacity: 1;
+}
+.col .links a:hover{
+    transform: translateX(-8px);
+    color:#ff014fff;
+}
+.col .contact-details{
+    display: inline-flex;
+    justify-content: space-between;
+}
+.col .contact-details i{
+    margin-right:15px;
+}
+.row .form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:2rem 0;
+}
+.row .form input{
+    background-color: #1a1c20ff;
+    color:#fff;
+    border:0;
+    outline:none;
+    padding:14px 20px;
+    border-radius: 6px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form button{
+    padding:14px 20px;
+    border:0;
+    border-radius: 6px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #ff014fff;
+}
+
+/********** Responsive Design ********/
+@media(max-width:900px)
+{
+  .row{
+    flex-direction: column;
+  }
+  .col{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 25px;
+  }
+}
+@media(max-width:768px)
+{
+  .row{
+    flex-direction: column;
+  }
+  .col{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <div><h3 style="right:0;font-family:'Lobster', cursive;color: #fff;">Fassio </h3>
+                <img src="{{url_for('static',filename='logo.png')}}" width="40spx" height="30px" style="color: white;"></a>
+            </div>
+            <ul class="navigation">
+                <li><a href="#"> Home </a></li>
+                <li><a href="/home"> Shop </a></li>
+                <li><a href="/loginAdmin"> Admin </a></li>
+                <li><a href="/loginUser"> User </a></li>
+                <li><a href="/loginAdmin"> Add Products </a></li>
+                <li><a href="#"> Contact </a></li>
+            </ul>
+    <div class="search">
+        <input type="text" placeholder=" Search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+
+    </div>
+    </header>
+    <div class="banner">
+        <div class="content">
+            <div class="get"><h1><span style="color:#09d6fa; ">SMART FASHION RECOMMENDER APPLICATION</span> <br>
+                <span style="color:#09fa96; ">Scroll.Order.Get it</span></h1><br>
+                <a href="/home"  name="Get Started">Shop Now &#8594;</a></div>
+           </div>
+
+        </div>
+    </div>
+    <section>
+            <div class="image22">
+                <a href="/home">
+        <img src="{{url_for('static',filename='fashion3.jpg')}}" alt="" height="300" width="300"></a>
+        <h6>Womens</h6>
+    </div>
+    <div class="image23">
+        <a href="/home">
+        <img src="{{url_for('static',filename='fashion4.jpg')}}" alt="" height="300" width="300"></a>
+        <h6>mens</h6>
+    </div>
+    <div class="image24">
+        <a href="/home">
+        <img src="{{url_for('static',filename='fashion5.jpg')}}" alt="" height="300" width="300"></a>
+        <h6>Kids</h6>
+    </div>
+</section>
+
+
+    <div class="about">
+        <center><h2>ABOUT</h2></center>
+             
+                <div class="txt">
+                    <p><h3 style="color:#21cfe2;">Welcome to your online fashion runway.</h3>
+                        
+                        We understand how much you value fashion and how much you appreciate the ease of internet purchasing. The SFRA online shopping app ensures that you don't miss out on a fashionable shopping experience whether you're on the road. SFRA is always available to suit all of your style demands, whether you want to buy for apparel for men and women, shoes, accessories, or even the latest electronics and computer devices.
+                </p></div>
+      
+      </div>
+      <div class="cart">
+        <center><h2>RECOMMENDATION&numsp;SYSTEM</h2></center>
+             
+                <div class="txt">
+                    <p><h3 style="color:#21cfe2;">Your Favourite Items have arrived.</h3>
+                
+                        In this case, we used a recommendation system to categorise the user's wardrobe and offer the best outfit for a specific occasion based on a recommendation algorithm. The proposed system exhibits its ability to analyse the user's wardrobe from photos, assess the kind and colour of the outfit, and then recommend the most appropriate outfit for the occasion depending on the user's present wardrobe.
+                </p></div>
+      
+      </div>
+      <div class="chatbot">
+        <center><h2>CHATBOT[Service]</h2></center>
+             
+
+                <div class="txt">
+                    <p><h3 style="color:#21cfe2;">Your Healer has arrived.</h3>
+                        
+                        Chatbots may also be used to collect visitor data, which can subsequently be utilised to enhance product recommendations. By having a deep grasp of client queries, requirements, and preferences, you can personalise product pages and improve customer loyalty and affinity. Chatbots may also notify consumers when an item is out of stock, provide acceptable alternatives based on their preferences, and provide an estimated delivery date for their order.
+                    </h3>
+                </p></div>
+      
+      </div>
+      <div class="devlopers"></div>
+           <footer>
+              <div class="container">
+                  <div class="row">
+                        <div class="col" id="company">
+                            <a href="#" class="logo">
+                                <div><h3 style="right:0;font-family:'Lobster', cursive;color: #fff;">Fassio </h3>
+                                    <img src="{{url_for('static',filename='logo.png')}}" width="40spx" height="30px" style="color: white;" ></a>
+                                </div>
+                            <div class="social">
+                              <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                              <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                              <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                              <a href="https://twitter.com/i/flow/login"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+      
+                        <div class="col" id="useful-links">
+                           <h3>Links</h3>
+                           <div class="links">
+                              <a href="/index">Home</a>
+                              <a href="/home">Shop</a>
+                              <a href="#">Help</a>
+                           </div>
+                        </div>
+      
+                        <div class="col" id="contact">
+                            <h3>Contact</h3>
+                            <div class="contact-details">
+                               <i class="fa fa-location"></i>
+                               <p>Kongunadu College of Engineering and Technology <br> Tholurpatti, Trichy</p>
+                            </div>
+                            <br>
+                            <div class="contact-details">
+                               <i class="fa fa-phone"></i>
+                               <p>+91 8901234567</p>
+                            </div>
+                        </div>
+                  </div>
+      
+                  <div class="row">
+                        <div class="form">
+                          <form action="">
+                              <input type="email" placeholder="Email here...">
+                              <button><i class="fa fa-paper-plane"></i></button>
+                          </form>
+                        </div>
+                  </div>
+      
+              </div>
+           </footer>
+
+
+</body>
+</html>

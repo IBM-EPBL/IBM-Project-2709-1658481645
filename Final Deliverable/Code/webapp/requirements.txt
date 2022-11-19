@@ -1,0 +1,7 @@
+flask
+bcrypt
+isort
+autopep8
+black
+marshmallow
+mypy
